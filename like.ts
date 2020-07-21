@@ -1,4 +1,4 @@
-class likeComponent{
+export class LikeComponent{
     constructor(private _noOfLikes?:number, private _state?:boolean){
      
         this._noOfLikes = _noOfLikes;
@@ -22,29 +22,27 @@ class likeComponent{
     }
 
             //function
-            likeButton(lc){
+            likeButtonClick(lc){
                 
                 console.log('initial state is: ' + lc.UserState)
                 console.log('initial no of likes: ' + lc._noOfLikes)
                 if (lc.UserState == true){
-                    console.log('true case initial no of likes: ' + lc._noOfLikes+ ' total no of likes: ' + (lc._noOfLikes+1))
+                    console.log('clicked')
+                    console.log('true case initial no of likes: ' + lc._noOfLikes+ ' new no of likes: ' + (lc._noOfLikes-1))
+                    lc.UserState= false
+                    console.log('changed state is: ' + lc.UserState)
                     return ++lc._noOfLikes
                 }else if (lc.UserState == false) {
-                    console.log('false case initial no of likes: ' + lc._noOfLikes)
+                    console.log('clicked')
+                    console.log('false case initial no of likes: ' + lc._noOfLikes+ ' new no of likes: ' + (lc._noOfLikes+1))
+                    lc.UserState = true
+                    console.log('changed state is: ' + lc.UserState)
                     return lc._noOfLikes
                 }  
                 
                 }
 
 }
-
-//Object 
-let lc = new likeComponent(0,false);
-let like = lc.Likes
-let flag = lc.UserState
-lc.Likes = 99
-lc.UserState = true
-lc.likeButton(lc)
 
 
 
