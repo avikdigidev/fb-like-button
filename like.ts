@@ -22,23 +22,31 @@ export class LikeComponent{
     }
 
             //function
-            likeButtonClick(lc){
+            likeButtonClick(){
                 
-                console.log('initial state is: ' + lc.UserState)
-                console.log('initial no of likes: ' + lc._noOfLikes)
-                if (lc.UserState == true){
-                    console.log('clicked')
-                    console.log('true case initial no of likes: ' + lc._noOfLikes+ ' new no of likes: ' + (lc._noOfLikes-1))
-                    lc.UserState= false
-                    console.log('changed state is: ' + lc.UserState)
-                    return ++lc._noOfLikes
-                }else if (lc.UserState == false) {
-                    console.log('clicked')
-                    console.log('false case initial no of likes: ' + lc._noOfLikes+ ' new no of likes: ' + (lc._noOfLikes+1))
-                    lc.UserState = true
-                    console.log('changed state is: ' + lc.UserState)
-                    return lc._noOfLikes
-                }  
+                console.log('initial state is: ' + this.UserState)
+                console.log('initial no of likes: ' + this._noOfLikes)
+
+                
+                // if (this.UserState == true){
+                //     console.log('clicked')
+                //     console.log('true case initial no of likes: ' + this._noOfLikes+ ' new no of likes: ' + (--this._noOfLikes))
+                //     console.log('changed state is: ' + this.UserState)
+                //     this._noOfLikes--
+                // }else if (this.UserState == false) {
+                //     console.log('clicked')
+                //     console.log('false case initial no of likes: ' + this._noOfLikes+ ' new no of likes: ' + this._noOfLikes++)
+                //     console.log('changed state is: ' + this.UserState)
+                //     this._noOfLikes++
+                // }
+
+                //alternate way to write if else block
+                this._noOfLikes += (this.UserState) ? -1 : +1
+                this.UserState = !this.UserState
+
+                
+                console.log('initial state is: ' + this.UserState)
+                console.log('initial no of likes: ' + this._noOfLikes)
                 
                 }
 
